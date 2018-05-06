@@ -28,6 +28,7 @@ public class ServerViewControl implements Runnable{
 	@FXML private Button bottomMiddle;
 	@FXML private Button bottomRight;
 	
+	
 	//FXML ImageViews, show X or O image
 	@FXML private ImageView topLeftImage;
 	@FXML private ImageView topMiddleImage;
@@ -38,6 +39,15 @@ public class ServerViewControl implements Runnable{
 	@FXML private ImageView bottomLeftImage;
 	@FXML private ImageView bottomMiddleImage;
 	@FXML private ImageView bottomRightImage;
+	
+	@FXML private ImageView topWin;
+	@FXML private ImageView midWin;
+	@FXML private ImageView botWin;
+	@FXML private ImageView leftWin;
+	@FXML private ImageView middleWin;
+	@FXML private ImageView rightWin;
+	@FXML private ImageView dia1Win;
+	@FXML private ImageView dia2Win;
 	
 	//FXML TextArea, used to deliver messages to user
     @FXML private TextArea messageArea;	
@@ -163,7 +173,8 @@ public class ServerViewControl implements Runnable{
 			System.out.println("Problem with serverSocket");
 			e.printStackTrace();
 		}
-		toMessageArea("User connected on " + clientSocket.getInetAddress());
+		toMessageArea("User connected on " + clientSocket.getInetAddress() + "\n" + 
+					"on port " + clientSocket.getLocalPort());
 		
 		clientRead = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
 		output = new PrintWriter(clientSocket.getOutputStream(), true);
@@ -172,8 +183,52 @@ public class ServerViewControl implements Runnable{
 		myThread.start();
 		
 	
-	}		
+	}
 	
+	@FXML void resetGame() {				//Resets Game to play again
+		for (int i = 0; i < boardArray.length; i++) {
+			boardArray[i] = 0;
+		}
+		topLeftImage.setImage(null);
+		topLeftImage.setDisable(true);
+		topLeft.setDisable(false);
+		topMiddleImage.setImage(null);
+		topMiddleImage.setDisable(true);
+		topMiddle.setDisable(false);
+		topRightImage.setImage(null);
+		topRightImage.setDisable(true);
+		topRight.setDisable(false);
+		middleLeftImage.setImage(null);
+		middleLeftImage.setDisable(true);
+		middleLeft.setDisable(false);
+		middleMiddleImage.setImage(null);
+		middleMiddleImage.setDisable(true);
+		middleMiddle.setDisable(false);
+		middleRightImage.setImage(null);
+		middleRightImage.setDisable(true);
+		middleRight.setDisable(false);
+		bottomLeftImage.setImage(null);
+		bottomLeftImage.setDisable(true);
+		bottomLeft.setDisable(false);
+		bottomMiddleImage.setImage(null);
+		bottomMiddleImage.setDisable(true);
+		bottomMiddle.setDisable(false);
+		bottomRightImage.setImage(null);
+		bottomRightImage.setDisable(true);
+		bottomRight.setDisable(false);
+		
+		 topWin.setVisible(false);
+		 midWin.setVisible(false);
+		 botWin.setVisible(false);
+		 leftWin.setVisible(false);
+		 middleWin.setVisible(false);
+		 rightWin.setVisible(false);
+		 dia1Win.setVisible(false);
+		 dia2Win.setVisible(false);
+		
+		messageArea.setText("Game Reset");
+		output.println("r");
+	}
 
 	//Constructor	
 	public ServerViewControl() {		
@@ -187,7 +242,7 @@ public class ServerViewControl implements Runnable{
 		messageArea.setText(input);
 	}	
 	
-	public void newGame() {				//Setup a new array for TicTacToe 0 = null 1 = X 2 = O
+	void newGame() {				//Setup a new array for TicTacToe 0 = null 1 = X 2 = O
 		boardArray = new int[9];
 		for (int element : boardArray) {
 			boardArray[element] = 0;
@@ -299,41 +354,89 @@ public class ServerViewControl implements Runnable{
 	
 	public void checkXwin() { //Checks to see if the X player has won
 		if ((boardArray[0] == 1)&&(boardArray[1] == 1)&& (boardArray[2] == 1)) {
-			xWins();	} 
+			xWins();
+			topWin.setVisible(true);
+			output.println("l1");
+			} 
 		else if ((boardArray[3] == 1) &&(boardArray[4] == 1) && (boardArray[5] == 1)) {
-			xWins(); }
+			xWins(); 
+			midWin.setVisible(true);
+			output.println("l2");
+		}
 		else if ((boardArray[6] == 1) &&(boardArray[7] == 1) && (boardArray[8] == 1)) {
-			xWins();	} 
+			xWins();	
+			botWin.setVisible(true);
+			output.println("l3");
+			} 
 		else if ((boardArray[0] == 1) &&(boardArray[3] == 1) && (boardArray[6] == 1)) {
-			xWins(); }
+			xWins(); 
+			leftWin.setVisible(true);
+			output.println("l4");
+			}
 		else if ((boardArray[1] == 1) &&(boardArray[4] == 1) && (boardArray[7] == 1)) {
-			xWins(); }
+			xWins(); 
+			middleWin.setVisible(true);
+			output.println("l5");
+			}
 		else if ((boardArray[2] == 1) &&(boardArray[5] == 1) && (boardArray[8] == 1)) {
-			xWins(); }
+			xWins(); 
+			rightWin.setVisible(true);
+			output.println("l6");
+			}
 		else if ((boardArray[0] == 1) &&(boardArray[4] == 1) && (boardArray[8] == 1)) {
-			xWins(); }
+			xWins(); 
+			dia1Win.setVisible(true);
+			output.println("l7");
+			}
 		else if ((boardArray[2] == 1) &&(boardArray[4] == 1) && (boardArray[6] == 1)) {
-			xWins(); }
+			xWins(); 
+			dia2Win.setVisible(true);
+			output.println("l8");
+			}
 		
 	}
 	
 	public void checkOwin() { //Checks to see if the O player has won
 		if ((boardArray[0] == 2)&&(boardArray[1] == 2)&& (boardArray[2] == 2)) {			
-			oWins();	} 
+			oWins();	
+			topWin.setVisible(true);
+			output.println("l1");
+			} 
 		else if ((boardArray[3] == 2) &&(boardArray[4] == 2) && (boardArray[5] == 2)) {
-			oWins(); }
+			oWins(); 
+			midWin.setVisible(true);
+			output.println("l2");
+			}
 		else if ((boardArray[6] == 2) &&(boardArray[7] == 2) && (boardArray[8] == 2)) {
-			oWins();	} 
+			oWins();	
+			botWin.setVisible(true);
+			output.println("l3");
+			} 
 		else if ((boardArray[0] == 2) &&(boardArray[3] == 2) && (boardArray[6] == 2)) {
-			oWins(); }
+			oWins(); 
+			leftWin.setVisible(true);
+			output.println("l4");
+			}
 		else if ((boardArray[1] == 2) &&(boardArray[4] == 2) && (boardArray[7] == 2)) {
-			oWins(); }
+			oWins(); 
+			middleWin.setVisible(true);
+			output.println("l5");
+			}
 		else if ((boardArray[2] == 2) &&(boardArray[5] == 2) && (boardArray[8] == 2)) {
-			oWins(); }
+			oWins(); 
+			rightWin.setVisible(true);
+			output.println("l6");
+			}
 		else if ((boardArray[0] == 2) &&(boardArray[4] == 2) && (boardArray[8] == 2)) {
-			oWins(); }
+			oWins(); 
+			dia1Win.setVisible(true);
+			output.println("l7");
+			}
 		else if ((boardArray[2] == 2) &&(boardArray[4] == 2) && (boardArray[6] == 2)) {
-			oWins(); }
+			oWins(); 
+			dia2Win.setVisible(true);
+			output.println("l8");
+			}
 	}
 	
 	public void checkDraw() {

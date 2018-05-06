@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
@@ -24,7 +25,7 @@
       <Button fx:id="bottomMiddle" layoutX="187.0" layoutY="326.0" mnemonicParsing="false" onAction="#addBottomMiddle" opacity="0.0" prefHeight="125.0" prefWidth="126.0" />
       <Button fx:id="bottomRight" layoutX="313.0" layoutY="326.0" mnemonicParsing="false" onAction="#addBottomRight" opacity="0.0" prefHeight="125.0" prefWidth="126.0" />
       <ImageView fx:id="topLeftImage" disable="true" fitHeight="125.0" fitWidth="125.0" layoutX="58.0" layoutY="71.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="topMiddleImage" disable="true" fitHeight="125.0" fitWidth="125.0" layoutX="187.0" layoutY="71.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="topMiddleImage" disable="true" fitHeight="125.0" fitWidth="126.0" layoutX="188.0" layoutY="71.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="topRightImage" disable="true" fitHeight="125.0" fitWidth="125.0" layoutX="314.0" layoutY="71.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="middleLeftImage" disable="true" fitHeight="125.0" fitWidth="125.0" layoutX="58.0" layoutY="201.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="middleMiddleImage" disable="true" fitHeight="125.0" fitWidth="125.0" layoutX="187.0" layoutY="201.0" pickOnBounds="true" preserveRatio="true" />
@@ -33,7 +34,48 @@
       <ImageView fx:id="bottomMiddleImage" disable="true" fitHeight="125.0" fitWidth="125.0" layoutX="187.0" layoutY="326.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="bottomRightImage" disable="true" fitHeight="125.0" fitWidth="125.0" layoutX="314.0" layoutY="326.0" pickOnBounds="true" preserveRatio="true" />
       <Text layoutX="216.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Server Game" />
-      <TextArea fx:id="messageArea" layoutX="113.0" layoutY="478.0" prefHeight="101.0" prefWidth="275.0" />
+      <TextArea fx:id="messageArea" layoutX="112.0" layoutY="479.0" prefHeight="101.0" prefWidth="275.0" />
       <Button layoutX="409.0" layoutY="504.0" mnemonicParsing="false" onAction="#host" text="Host" />
+      <Button layoutX="21.0" layoutY="504.0" mnemonicParsing="false" onAction="#resetGame" text="New Game" />
+      <ImageView fx:id="topWin" fitHeight="200.0" fitWidth="400.0" layoutX="50.0" layoutY="34.0" visible="false">
+         <image>
+            <Image url="@resources/line.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="midWin" fitHeight="200.0" fitWidth="400.0" layoutX="51.0" layoutY="163.0" visible="false">
+         <image>
+            <Image url="@resources/line.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="botWin" fitHeight="200.0" fitWidth="400.0" layoutX="51.0" layoutY="289.0" visible="false">
+         <image>
+            <Image url="@resources/line.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="leftWin" fitHeight="200.0" fitWidth="400.0" layoutX="-75.0" layoutY="163.0" rotate="90.0" visible="false">
+         <image>
+            <Image url="@resources/line.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="middleWin" fitHeight="200.0" fitWidth="400.0" layoutX="50.0" layoutY="164.0" rotate="90.0" visible="false">
+         <image>
+            <Image url="@resources/line.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="rightWin" fitHeight="200.0" fitWidth="400.0" layoutX="176.0" layoutY="164.0" rotate="90.0" visible="false">
+         <image>
+            <Image url="@resources/line.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="dia1Win" fitHeight="200.0" fitWidth="400.0" layoutX="51.0" layoutY="164.0" rotate="45.0" visible="false">
+         <image>
+            <Image url="@resources/line.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="dia2Win" fitHeight="200.0" fitWidth="400.0" layoutX="50.0" layoutY="164.0" rotate="315.0" visible="false">
+         <image>
+            <Image url="@resources/line.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

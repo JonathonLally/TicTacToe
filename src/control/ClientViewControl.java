@@ -40,6 +40,15 @@ public class ClientViewControl implements Runnable{
 	@FXML private ImageView bottomMiddleImage;
 	@FXML private ImageView bottomRightImage;
 	
+	@FXML private ImageView topWin;
+	@FXML private ImageView midWin;
+	@FXML private ImageView botWin;
+	@FXML private ImageView leftWin;
+	@FXML private ImageView middleWin;
+	@FXML private ImageView rightWin;
+	@FXML private ImageView dia1Win;
+	@FXML private ImageView dia2Win;
+	
 	@FXML private TextField serverIP;
 	@FXML private TextArea messageArea;
 	@FXML private Button connectButton;
@@ -148,7 +157,7 @@ public class ClientViewControl implements Runnable{
     	
     	try {
 			server = new Socket(serverIp, portNumber);
-			toMessageArea("Connected to " + server.getInetAddress() + " on port " + server.getLocalPort());
+			toMessageArea("Connected to " + server.getInetAddress() + " on port " + server.getPort());
 		} catch (UnknownHostException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -191,9 +200,16 @@ public class ClientViewControl implements Runnable{
 				if (input.charAt(0) == '0') {
 					System.out.println("Sucess");
 					process(input.charAt(1));
-				} else {
+				} else if (input.charAt(0) == 'r') {
+					resetGame();
+				}
+				if (input.charAt(0) == 'l') {
+					processLine(input.charAt(1));
+				}
+				else {
 					System.out.println("Not valid move");
 					System.out.println(input);
+					toMessageArea(input);
 				}
 				
 			} catch (IOException e) {
@@ -203,7 +219,28 @@ public class ClientViewControl implements Runnable{
 		}
 	}
 
-	private void process(char input) {
+	private void processLine(char charAt) {	//This processes the commands for the win lines
+		if (charAt == '1') {
+			topWin.setVisible(true);
+		} else if (charAt == '2') {
+			midWin.setVisible(true);
+		} else if (charAt == '3') {
+			botWin.setVisible(true);
+		} else if (charAt == '4') {
+			leftWin.setVisible(true);
+		} else if (charAt == '5') {
+			middleWin.setVisible(true);
+		} else if (charAt == '6') {
+			rightWin.setVisible(true);
+		} else if (charAt == '7') {
+			dia1Win.setVisible(true);
+		} else if (charAt == '8') {
+			dia2Win.setVisible(true);
+		}
+		
+	}
+
+	private void process(char input) {		//This processes the commands for tictac, 1 = Top Left, 2 = Top Middle ... 9 = Bottom Right
 		if (input == '1') {
 			topLeft.setDisable(true);
 			topLeftImage.setDisable(false);
@@ -250,5 +287,46 @@ public class ClientViewControl implements Runnable{
 			bottomRightImage.setImage(imageO);
 			toMessageArea("Host moved bottom Right");
 		}
+	}
+	
+	private void resetGame() {		//Resets Game to play again
+		topLeftImage.setImage(null);
+		topLeftImage.setDisable(true);
+		topLeft.setDisable(false);
+		topMiddleImage.setImage(null);
+		topMiddleImage.setDisable(true);
+		topMiddle.setDisable(false);
+		topRightImage.setImage(null);
+		topRightImage.setDisable(true);
+		topRight.setDisable(false);
+		middleLeftImage.setImage(null);
+		middleLeftImage.setDisable(true);
+		middleLeft.setDisable(false);
+		middleMiddleImage.setImage(null);
+		middleMiddleImage.setDisable(true);
+		middleMiddle.setDisable(false);
+		middleRightImage.setImage(null);
+		middleRightImage.setDisable(true);
+		middleRight.setDisable(false);
+		bottomLeftImage.setImage(null);
+		bottomLeftImage.setDisable(true);
+		bottomLeft.setDisable(false);
+		bottomMiddleImage.setImage(null);
+		bottomMiddleImage.setDisable(true);
+		bottomMiddle.setDisable(false);
+		bottomRightImage.setImage(null);
+		bottomRightImage.setDisable(true);
+		bottomRight.setDisable(false);
+		
+		 topWin.setVisible(false);
+		 midWin.setVisible(false);
+		 botWin.setVisible(false);
+		 leftWin.setVisible(false);
+		 middleWin.setVisible(false);
+		 rightWin.setVisible(false);
+		 dia1Win.setVisible(false);
+		 dia2Win.setVisible(false);
+		
+		toMessageArea("Game Reset");
 	}
 }

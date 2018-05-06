@@ -37,5 +37,45 @@
       <TextField fx:id="serverIP" layoutX="227.0" layoutY="18.0" />
       <Text layoutX="206.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="IP" />
       <Button fx:id="connectButton" layoutX="390.0" layoutY="18.0" mnemonicParsing="false" onAction="#connect" text="Connect" />
+      <ImageView fx:id="topWin" fitHeight="200.0" fitWidth="400.0" layoutX="50.0" layoutY="34.0" visible="false">
+         <image>
+            <Image url="@resources/line.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="midWin" fitHeight="200.0" fitWidth="400.0" layoutX="50.0" layoutY="164.0" visible="false">
+         <image>
+            <Image url="@resources/line.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="botWin" fitHeight="200.0" fitWidth="400.0" layoutX="50.0" layoutY="289.0" visible="false">
+         <image>
+            <Image url="@resources/line.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="leftWin" fitHeight="200.0" fitWidth="400.0" layoutX="-75.0" layoutY="163.0" rotate="90.0" visible="false">
+         <image>
+            <Image url="@resources/line.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="middleWin" fitHeight="200.0" fitWidth="400.0" layoutX="50.0" layoutY="164.0" rotate="90.0" visible="false">
+         <image>
+            <Image url="@resources/line.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="rightWin" fitHeight="200.0" fitWidth="400.0" layoutX="176.0" layoutY="164.0" rotate="90.0" visible="false">
+         <image>
+            <Image url="@resources/line.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="dia1Win" fitHeight="200.0" fitWidth="400.0" layoutX="50.0" layoutY="164.0" rotate="45.0" visible="false">
+         <image>
+            <Image url="@resources/line.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="dia2Win" fitHeight="200.0" fitWidth="400.0" layoutX="50.0" layoutY="163.0" rotate="315.0" visible="false">
+         <image>
+            <Image url="@resources/line.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
