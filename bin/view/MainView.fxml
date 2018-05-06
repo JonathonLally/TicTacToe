@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="240.0" prefWidth="320.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.MainViewControl">
+   <children>
+      <Text layoutX="117.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tic Tac">
+         <font>
+            <Font size="29.0" />
+         </font>
+      </Text>
+      <Button fx:id="hostButton" layoutX="123.0" layoutY="95.0" mnemonicParsing="false" onAction="#hostGame" text="Host Game" />
+      <Button fx:id="connectButton" layoutX="125.0" layoutY="142.0" mnemonicParsing="false" onAction="#connectGame" text="Join Game" />
+   </children>
+</AnchorPane>

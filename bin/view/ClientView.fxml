@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.ClientViewControl">
+   <children>
+      <ImageView fitHeight="400.0" fitWidth="400.0" layoutX="50.0" layoutY="63.0">
+         <image>
+            <Image url="@resources/TicTac.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="topLeft" layoutX="58.0" layoutY="71.0" mnemonicParsing="false" onAction="#addTopLeft" opacity="0.0" prefHeight="125.0" prefWidth="126.0" />
+      <Button fx:id="topMiddle" layoutX="187.0" layoutY="71.0" mnemonicParsing="false" onAction="#addTopMiddle" opacity="0.0" prefHeight="125.0" prefWidth="126.0" />
+      <Button fx:id="topRight" layoutX="313.0" layoutY="71.0" mnemonicParsing="false" onAction="#addTopRight" opacity="0.0" prefHeight="125.0" prefWidth="126.0" />
+      <Button fx:id="middleLeft" layoutX="58.0" layoutY="201.0" mnemonicParsing="false" onAction="#addMiddleLeft" opacity="0.0" prefHeight="125.0" prefWidth="126.0" />
+      <Button fx:id="middleMiddle" layoutX="187.0" layoutY="201.0" mnemonicParsing="false" onAction="#addMiddleMiddle" opacity="0.0" prefHeight="125.0" prefWidth="126.0" />
+      <Button fx:id="middleRight" layoutX="313.0" layoutY="201.0" mnemonicParsing="false" onAction="#addMiddleRight" opacity="0.0" prefHeight="125.0" prefWidth="126.0" />
+      <Button fx:id="bottomLeft" layoutX="58.0" layoutY="326.0" mnemonicParsing="false" onAction="#addBottomLeft" opacity="0.0" prefHeight="125.0" prefWidth="126.0" />
+      <Button fx:id="bottomMiddle" layoutX="187.0" layoutY="326.0" mnemonicParsing="false" onAction="#addBottomMiddle" opacity="0.0" prefHeight="125.0" prefWidth="126.0" />
+      <Button fx:id="bottomRight" layoutX="313.0" layoutY="326.0" mnemonicParsing="false" onAction="#addBottomRight" opacity="0.0" prefHeight="125.0" prefWidth="126.0" />
+      <ImageView fx:id="topLeftImage" disable="true" fitHeight="125.0" fitWidth="125.0" layoutX="58.0" layoutY="71.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="topMiddleImage" disable="true" fitHeight="125.0" fitWidth="125.0" layoutX="187.0" layoutY="71.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="topRightImage" disable="true" fitHeight="125.0" fitWidth="125.0" layoutX="314.0" layoutY="71.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="middleLeftImage" disable="true" fitHeight="125.0" fitWidth="125.0" layoutX="58.0" layoutY="201.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="middleMiddleImage" disable="true" fitHeight="125.0" fitWidth="125.0" layoutX="187.0" layoutY="201.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="middleRightImage" disable="true" fitHeight="125.0" fitWidth="125.0" layoutX="314.0" layoutY="201.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="bottomLeftImage" disable="true" fitHeight="125.0" fitWidth="125.0" layoutX="62.0" layoutY="326.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="bottomMiddleImage" disable="true" fitHeight="125.0" fitWidth="125.0" layoutX="187.0" layoutY="326.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="bottomRightImage" disable="true" fitHeight="125.0" fitWidth="125.0" layoutX="314.0" layoutY="326.0" pickOnBounds="true" preserveRatio="true" />
+      <Text layoutX="50.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Client Game" />
+      <TextArea fx:id="messageArea" layoutX="150.0" layoutY="474.0" prefHeight="112.0" prefWidth="200.0" />
+      <TextField fx:id="serverIP" layoutX="227.0" layoutY="18.0" />
+      <Text layoutX="206.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="IP" />
+      <Button fx:id="connectButton" layoutX="390.0" layoutY="10.0" mnemonicParsing="false" onAction="#connect" text="Connect" />
+   </children>
+</AnchorPane>
