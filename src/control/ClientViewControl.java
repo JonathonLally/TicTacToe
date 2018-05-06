@@ -74,36 +74,78 @@ public class ClientViewControl implements Runnable{
     }
 
     @FXML void addTopRight(ActionEvent event) {
+    	topRight.setDisable(true);
+    	topRightImage.setDisable(false);
+    	topRightImage.setImage(imageX);
+    	toMessageArea("Client took turn Top Right");
+    	socketOut.println("03");
 
     }
 
     @FXML void addMiddleLeft(ActionEvent event) {
+    	middleLeft.setDisable(true);
+    	middleLeftImage.setDisable(false);
+    	middleLeftImage.setImage(imageX);
+    	toMessageArea("Client took turn Middle Left");
+    	socketOut.println("04");
 
     }
 
     @FXML void addMiddleMiddle(ActionEvent event) {
+    	middleMiddle.setDisable(true);
+    	middleMiddleImage.setDisable(false);
+    	middleMiddleImage.setImage(imageX);
+    	toMessageArea("Client took turn Middle Middle");
+    	socketOut.println("05");
 
     }
 
     @FXML void addMiddleRight(ActionEvent event) {
-
+    	middleRight.setDisable(true);
+    	middleRightImage.setDisable(false);
+    	middleRightImage.setImage(imageX);
+    	toMessageArea("Client took turn Middle Right");
+    	socketOut.println("06");
     }
 
     @FXML void addBottomLeft(ActionEvent event) {
+    	bottomLeft.setDisable(true);
+    	bottomLeftImage.setDisable(false);
+    	bottomLeftImage.setImage(imageX);
+    	toMessageArea("Client took turn Bottom Left");
+    	socketOut.println("07");
 
     }
 
     @FXML void addBottomMiddle(ActionEvent event) {
-
+    	bottomMiddle.setDisable(true);
+    	bottomMiddleImage.setDisable(false);
+    	bottomMiddleImage.setImage(imageX);
+    	toMessageArea("Client took turn Bottom Middle");
+    	socketOut.println("08");
+    	
     }
 
     @FXML void addBottomRight(ActionEvent event) {
+    	bottomRight.setDisable(true);
+    	bottomRightImage.setDisable(false);
+    	bottomRightImage.setImage(imageX);
+    	toMessageArea("Client took turn Bottom Right");
+    	socketOut.println("09");
 
     }
 
     @FXML void connect(ActionEvent event) throws IOException {		//Connects to serverSocket
     	portNumber = 4444;
-    	serverIp = "localhost";			//LocalHost for now TODO Change this
+    	String tempIP = "";
+    	if ((tempIP = serverIP.getText()) != null) {
+    		serverIp = tempIP;
+    	} else {
+        	serverIp = "localhost";		
+    	}
+    	
+    	System.out.println("This is severIp ---" + serverIp);
+    	
     	try {
 			server = new Socket(serverIp, portNumber);
 			toMessageArea("Connected to " + server.getInetAddress() + " on port " + server.getLocalPort());
@@ -150,9 +192,8 @@ public class ClientViewControl implements Runnable{
 					System.out.println("Sucess");
 					process(input.charAt(1));
 				} else {
-					System.out.println("Fail");
+					System.out.println("Not valid move");
 					System.out.println(input);
-					System.out.println(input.charAt(0));
 				}
 				
 			} catch (IOException e) {
@@ -168,8 +209,46 @@ public class ClientViewControl implements Runnable{
 			topLeftImage.setDisable(false);
 			topLeftImage.setImage(imageO);
 			toMessageArea("Host Moved Top Left");
+		} else if (input == '2') {
+			topMiddle.setDisable(true);
+			topMiddleImage.setDisable(false);
+			topMiddleImage.setImage(imageO);
+			toMessageArea("Host Moved Top Middle");
+		} else if (input == '3') {
+			topRight.setDisable(true);
+			topRightImage.setDisable(false);
+			topRightImage.setImage(imageO);
+			toMessageArea("Host moved Top Right");
+		} else if (input == '4') {
+			middleLeft.setDisable(true);
+			middleLeftImage.setDisable(false);
+			middleLeftImage.setImage(imageO);
+			toMessageArea("Host moved Middle Left");
+		} else if (input == '5') {
+			middleMiddle.setDisable(true);
+			middleMiddleImage.setDisable(false);
+			middleMiddleImage.setImage(imageO);
+			toMessageArea("Host moved Middle Middle");
+		} else if (input == '6' ) {
+			middleRight.setDisable(true);
+			middleRightImage.setDisable(false);;
+			middleRightImage.setImage(imageO);
+			toMessageArea("Host moved Middle Right");
+		} else if (input == '7') {
+			bottomLeft.setDisable(true);
+			bottomLeftImage.setDisable(false);
+			bottomLeftImage.setImage(imageO);
+			toMessageArea("Host moved Bottom Left");
+		} else if (input == '8') {
+			bottomMiddle.setDisable(true);
+			bottomMiddleImage.setDisable(false);
+			bottomMiddleImage.setImage(imageO);
+			toMessageArea("Host moved bottom Middle");
+		} else if (input == '9') {
+			bottomRight.setDisable(true);
+			bottomRightImage.setDisable(false);
+			bottomRightImage.setImage(imageO);
+			toMessageArea("Host moved bottom Right");
 		}
-		
 	}
-
 }

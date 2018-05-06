@@ -33,9 +33,9 @@
       <ImageView fx:id="bottomMiddleImage" disable="true" fitHeight="125.0" fitWidth="125.0" layoutX="187.0" layoutY="326.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="bottomRightImage" disable="true" fitHeight="125.0" fitWidth="125.0" layoutX="314.0" layoutY="326.0" pickOnBounds="true" preserveRatio="true" />
       <Text layoutX="50.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Client Game" />
-      <TextArea fx:id="messageArea" layoutX="150.0" layoutY="474.0" prefHeight="112.0" prefWidth="200.0" />
+      <TextArea fx:id="messageArea" layoutX="112.0" layoutY="474.0" prefHeight="112.0" prefWidth="275.0" />
       <TextField fx:id="serverIP" layoutX="227.0" layoutY="18.0" />
       <Text layoutX="206.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="IP" />
-      <Button fx:id="connectButton" layoutX="390.0" layoutY="10.0" mnemonicParsing="false" onAction="#connect" text="Connect" />
+      <Button fx:id="connectButton" layoutX="390.0" layoutY="18.0" mnemonicParsing="false" onAction="#connect" text="Connect" />
    </children>
 </AnchorPane>

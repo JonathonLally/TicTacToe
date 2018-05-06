@@ -88,26 +88,68 @@ public class ServerViewControl implements Runnable{
 	}
 
 	@FXML void addMiddleLeft(ActionEvent event) {
+		middleLeft.setDisable(true);
+		middleLeftImage.setDisable(false);
+		middleLeftImage.setImage(imageO);
+		boardArray[3] = 2;
+		toMessageArea("Host Moved Middle Left");
+		output.println("04");
+		checkWinner();
 
 	}
 
 	@FXML void addMiddleMiddle(ActionEvent event) {
+		middleMiddle.setDisable(true);
+		middleMiddleImage.setDisable(false);
+		middleMiddleImage.setImage(imageO);
+		boardArray[4] = 2;
+		toMessageArea("Host moved Middle Middle");
+		output.println("05");
+		checkWinner();
 
 	}
 
 	@FXML void addMiddleRight(ActionEvent event) {
+		middleRight.setDisable(true);
+		middleRightImage.setDisable(false);
+		middleRightImage.setImage(imageO);
+		boardArray[5] = 2;
+		toMessageArea("Host moved Middle Right");
+		output.println("06");
+		checkWinner();
 
 	}
 
 	@FXML void addBottomLeft(ActionEvent event) {
+		bottomLeft.setDisable(true);
+		bottomLeftImage.setDisable(false);
+		bottomLeftImage.setImage(imageO);
+		boardArray[6] = 2;
+		toMessageArea("Host moved Bottom Left");
+		output.println("07");
+		checkWinner();
 
 	}
 
 	@FXML void addBottomMiddle(ActionEvent event) {
+		bottomMiddle.setDisable(true);
+		bottomMiddleImage.setDisable(false);
+		bottomMiddleImage.setImage(imageO);
+		boardArray[7] = 2;
+		toMessageArea("Host moved Bottom Middle");
+		output.println("08");
+		checkWinner();
 
 	}
 
 	@FXML void addBottomRight(ActionEvent event) {
+		bottomRight.setDisable(true);
+		bottomRightImage.setDisable(false);
+		bottomRightImage.setImage(imageO);
+		boardArray[8] = 2;
+		toMessageArea("Host moved Bottom Right");
+		output.println("09");
+		checkWinner();
 
 	}
 	
@@ -169,9 +211,8 @@ public class ServerViewControl implements Runnable{
 					System.out.println("Sucess");
 					process(input.charAt(1));
 				} else {
-					System.out.println("Fail");
-					System.out.println(input);
-					System.out.println(input.charAt(0));
+					System.out.println("Not a valid move");
+					System.out.println(input);					
 				}
 				
 			} catch (IOException e) {
@@ -182,19 +223,70 @@ public class ServerViewControl implements Runnable{
 			
 	}
 
-	private void process(char input) {
-		if (input == '1') {
+	private void process(char input) {		//This takes the string from the client and turns it into a tictactoe move
+		if (input == '1') {					//1 is top left, 2 is top middle ... 9 is bottom right
 			topLeft.setDisable(true);
 			topLeftImage.setDisable(false);
 			topLeftImage.setImage(imageX);
 			toMessageArea("Client Moved Top Left");
 			boardArray[0] = 1;
+			checkWinner();
 		} else if (input == '2') {
 			topMiddle.setDisable(true);
 			topMiddleImage.setDisable(false);
 			topMiddleImage.setImage(imageX);
 			toMessageArea("Client Moved Top Middle");
 			boardArray[1] = 1;
+			checkWinner();
+		} else if (input == '3') {
+			topRight.setDisable(true);
+			topRightImage.setDisable(false);
+			topRightImage.setImage(imageX);
+			toMessageArea("Client moved Top Right");
+			boardArray[2] = 1;
+			checkWinner();
+		} else if (input == '4') {
+			middleLeft.setDisable(true);
+			middleLeftImage.setDisable(false);
+			middleLeftImage.setImage(imageX);
+			toMessageArea("Client moved Middle Left");
+			boardArray[3] = 1;
+			checkWinner();
+		} else if (input == '5') {
+			middleMiddle.setDisable(true);
+			middleMiddleImage.setDisable(false);
+			middleMiddleImage.setImage(imageX);
+			toMessageArea("Client moved Middle Middle");
+			boardArray[4] = 1;
+			checkWinner();
+		} else if (input == '6') {
+			middleRight.setDisable(true);
+			middleRightImage.setDisable(false);
+			middleRightImage.setImage(imageX);
+			toMessageArea("Client moved Middle Right");
+			boardArray[5] = 1;
+			checkWinner();
+		} else if (input == '7') {
+			bottomLeft.setDisable(true);
+			bottomLeftImage.setDisable(false);
+			bottomLeftImage.setImage(imageX);
+			toMessageArea("Client Moved Bottom Left");
+			boardArray[6] = 1;
+			checkWinner();
+		} else if (input == '8') {
+			bottomMiddle.setDisable(true);
+			bottomMiddleImage.setDisable(false);
+			bottomMiddleImage.setImage(imageX);
+			toMessageArea("Client moved Bottom Middle");
+			boardArray[7] = 1;
+			checkWinner();
+		} else if (input == '9') {
+			bottomRight.setDisable(true);
+			bottomRightImage.setDisable(false);
+			bottomRightImage.setImage(imageX);
+			toMessageArea("Client moved Bottom Right");
+			boardArray[8] = 1;
+			checkWinner();
 		}
 		
 	}
@@ -202,6 +294,7 @@ public class ServerViewControl implements Runnable{
 	public void checkWinner() {	//Checks to see if anyone has won the game
 		checkXwin();
 		checkOwin();
+		checkDraw();
 	}
 	
 	public void checkXwin() { //Checks to see if the X player has won
@@ -241,6 +334,19 @@ public class ServerViewControl implements Runnable{
 			oWins(); }
 		else if ((boardArray[2] == 2) &&(boardArray[4] == 2) && (boardArray[6] == 2)) {
 			oWins(); }
+	}
+	
+	public void checkDraw() {
+		int total = 0;
+		for (int i = 0; i < boardArray.length; i++) {
+			if (boardArray[i] != 0) {
+				total++;
+			}
+		}
+		if (total >= 9) {
+			toMessageArea("Game is a draw");
+			output.println("Game is a draw!");
+		}
 	}
 	
 	public void xWins() {

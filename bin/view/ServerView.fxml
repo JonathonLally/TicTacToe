@@ -33,7 +33,7 @@
       <ImageView fx:id="bottomMiddleImage" disable="true" fitHeight="125.0" fitWidth="125.0" layoutX="187.0" layoutY="326.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="bottomRightImage" disable="true" fitHeight="125.0" fitWidth="125.0" layoutX="314.0" layoutY="326.0" pickOnBounds="true" preserveRatio="true" />
       <Text layoutX="216.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Server Game" />
-      <TextArea fx:id="messageArea" layoutX="150.0" layoutY="485.0" prefHeight="101.0" prefWidth="200.0" />
-      <Button layoutX="398.0" layoutY="523.0" mnemonicParsing="false" onAction="#host" text="Host" />
+      <TextArea fx:id="messageArea" layoutX="113.0" layoutY="478.0" prefHeight="101.0" prefWidth="275.0" />
+      <Button layoutX="409.0" layoutY="504.0" mnemonicParsing="false" onAction="#host" text="Host" />
    </children>
 </AnchorPane>

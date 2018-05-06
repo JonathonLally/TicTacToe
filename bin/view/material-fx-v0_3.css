@@ -49,7 +49,7 @@
 	-fx-text-control-title-color: rgb(130.0, 130.0, 130.0);
 	-fx-text-fill: -fx-text-base-color;
 	-dark: rgb(47.0, 52.0, 57.0);
-	-fx-background-color: -dark;
+	-fx-background-color:  #c0dee5;
 	/*default font */
 	-fx-font-family: 'Roboto Medium';
 	-fx-font-size: 14.0px;
@@ -131,12 +131,12 @@
 .button-raised {
 	-fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.30), 6.0, 0.3, 0,
 		1);
-	-fx-background-color: rgb(250, 250, 250);
+	-fx-background-color: rgb(186, 178, 178);
 }
 
 .button-flat {
 	-fx-effect: null;
-	-fx-background-color: transparent;
+	-fx-background-color: rgb(186, 178, 178);
 }
 
 .toggle-button, .button {
@@ -154,7 +154,7 @@
 }
 
 .button:default {
-	-fx-background-color: -swatch-500;
+	-fx-background-color: rgb(186, 178, 178);
 	-fx-text-fill: -fx-text-button-colored;
 }
 
@@ -171,12 +171,12 @@
 
 .toggle-button:armed, .toggle-button:selected, .button:armed, .button:default:armed
 	{
-	-fx-background-color: -swatch-grey;
+	-fx-background-color: rgb(186, 178, 178);
 	-fx-text-fill: -fx-text-button-colored;
 }
 
 .icon-button {
-	-fx-background-color: transparent;
+	-fx-background-color: rgb(186, 178, 178);
 	-fx-pref-height: 42;
 	-fx-pref-width: 42;
 	-fx-min-height: 42;
@@ -744,7 +744,7 @@
 	-fx-background-color: -swatch-toolbar;
 	-fx-border-width: 0 0 2 0;
 	-fx-border-color: -swatch-grey;
-	-fx-min-height: 48;
+	-fx-min-height: 20;
 	-fx-alignment: CENTER_LEFT;
 }
 
