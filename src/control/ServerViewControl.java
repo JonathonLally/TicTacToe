@@ -257,21 +257,19 @@ public class ServerViewControl implements Runnable{
 	}
 
 	@Override
-	public void run() {		
+	public void run() {		//Runs in background, waits for input commands from client
 		while (true) {
 			try {
 				String input = clientRead.readLine();
 				System.out.println(input);
-				if (input.charAt(0) == '0') {
-					System.out.println("Sucess");
-					process(input.charAt(1));
+				if (input.charAt(0) == '0') {	//Checks if command is valid move
+					process(input.charAt(1));	//Sends to process move
 				} else {
 					System.out.println("Not a valid move");
 					System.out.println(input);					
 				}
 				
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
